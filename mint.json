@@ -50,10 +50,8 @@
     {
       "group": "Feature Endpoint",
       "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/RephraseContent",
-        "api-reference/endpoint/update",
-        "api-reference/endpoint/delete"
+        "api-reference/endpoint/InstructPrompt",
+        "api-reference/endpoint/RephraseContent"
       ]
     }
   ],
