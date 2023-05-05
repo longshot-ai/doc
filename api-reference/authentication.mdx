@@ -1,22 +1,24 @@
 ---
 title: "Authentication"
-description: "Example overview page before API endpoints"
+description: "Authentication information before making any API request."
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et eros iaculis tortor dapibus cursus. Curabitur quis sapien nec tortor dictum gravida.
+All API uses the Bearer token or Secret Token to authenticate requests.
+
+The LongShot API uses Bearer Token to authenticate requests. We will provide you with a custom secret / Bearer Token at the time of setup.
+
+Your Bearer / Secret Token carry many privileges, so be sure to keep them secure! Do not share your secret token in publicly accessible areas such as GitHub, client-side code, and so forth.
+
+Authentication to the API's is performed via HTTP Basic Auth. Provide your Secret token on all the api request you make.
 
 ```bash
-'Authorization': 'Token <team_token>'
+'Authorization': 'Bearer <Secret_token>'
 ```
 
-## API Tokens
+## Things to Note
 
-Nullam convallis mauris at nunc consectetur, ac imperdiet leo rutrum. Maecenas cursus purus a pellentesque blandit. Pellentesque vitae lacinia libero, non mollis metus.
+To authenticate via bearer auth (e.g., for a cross-origin request), use -H "Authorization: Bearer sk_test_4eC39HqLyjWDarjtT1zdp7dc" instead of just sk_test_4eC39HqLyjWDarjtT1zdp7dc.
 
-Nam id ullamcorper urna, at rutrum enim. [Maecenas vulputate](/introduction) vehicula libero, vitae sodales augue pretium nec. Quisque a magna tempor, semper risus vel, fermentum nunc. Pellentesque fermentum interdum ex, eu convallis massa blandit sed. Aliquam bibendum ipsum vel laoreet auctor.
+The Bearer authentication scheme was originally created as part of OAuth 2.0 in RFC 6750, but is sometimes also used on its own. Similarly to Basic authentication, Bearer authentication should only be used over HTTPS (SSL)
 
-### Permissions
-
-Etiam lobortis ut odio ut fermentum. Nunc odio velit, sollicitudin at consectetur id, tristique eget turpis. Aliquam at risus vitae dolor sodales venenatis. In hac habitasse platea dictumst.
-
-Aenean consequat diam eget mollis fermentum. [Quisque eu malesuada](/introduction) felis, non dignissim libero.
+All API requests must be made over HTTPS. Calls made over plain HTTP will fail. API requests without authentication will also fail.
