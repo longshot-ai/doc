@@ -2,8 +2,8 @@
   "$schema": "https://mintlify.com/schema.json",
   "name": "LongShot AI Documentation Kit",
   "logo": {
-    "dark": "/logo/dark.png",
-    "light": "/logo/light.png"
+    "dark": "/logo/ls_light.png",
+    "light": "/logo/ls_light.png"
   },
   "favicon": "/favicon.png",
   "colors": {
