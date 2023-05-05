@@ -43,14 +43,22 @@ The contents of the copies
   The input text provided to be rephrased.
 </ResponseField>
 
+<ResponseField name="citations" type="string">
+  This array provides the source / links of the sources which have been considered while writing the generated content.
+</ResponseField>
+
 <ResponseField name="message" type="string">
   This is the information attached to the call. This is useful when any error occurs, it provides more meaningful information about it. 
+</ResponseField>
+
+<ResponseField name="credits_used" type="number">
+  This field informs you about the credits used for this particular request. It varies upon the generated content.
 </ResponseField>
 
 <RequestExample>
 
 ```bash Example Request
-curl --location --request POST 'https://api-v2.longshot.ai/custom/api/content/rephrase' \
+curl --location --request POST 'https://api-v2.longshot.ai/custom/api/generate/instruct' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer <token>' \
 --data-raw '{
@@ -66,12 +74,13 @@ curl --location --request POST 'https://api-v2.longshot.ai/custom/api/content/re
 {
 	"copies": [
 		{
-			"content": "<Rephrased Content>"
+			"content": "<Generated Content>"
 		}
 	],
-	"text": "<Input Text>",
+	"citations": [],
 	"status": "success",
 	"message": "copies generated successfully",
+	"credits_used": <Credits>
 }
 ```
 
