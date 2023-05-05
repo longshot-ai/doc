@@ -51,7 +51,7 @@
       "group": "Feature Endpoint",
       "pages": [
         "api-reference/endpoint/get",
-        "api-reference/endpoint/Rephrase Content",
+        "api-reference/endpoint/RephraseContent",
         "api-reference/endpoint/update",
         "api-reference/endpoint/delete"
       ]
