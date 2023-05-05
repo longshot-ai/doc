@@ -14,12 +14,12 @@
   "topbarLinks": [
     {
       "name": "Documentation",
-      "url": "https://mintlify.com/docs"
+      "url": "https://docs.longshot.ai"
     }
   ],
   "topbarCtaButton": {
     "name": "Get Started",
-    "url": "https://github.com/mintlify/starter"
+    "url": "#"
   },
   "anchors": [
     {
@@ -30,12 +30,12 @@
     {
       "name": "Changelog",
       "icon": "list",
-      "url": "https://mintlify.com"
+      "url": ""
     },
     {
       "name": "Community",
       "icon": "discord",
-      "url": "https://mintlify.com/community"
+      "url": "#"
     }
   ],
   "navigation": [
@@ -48,10 +48,10 @@
       "pages": ["api-reference/authentication"]
     },
     {
-      "group": "Endpoint Examples",
+      "group": "Feature Endpoint",
       "pages": [
         "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
+        "api-reference/endpoint/Rephrase Content",
         "api-reference/endpoint/update",
         "api-reference/endpoint/delete"
       ]
