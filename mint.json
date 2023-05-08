@@ -51,7 +51,8 @@
       "group": "Feature Endpoint",
       "pages": [
         "api-reference/endpoint/InstructPrompt",
-        "api-reference/endpoint/RephraseContent"
+        "api-reference/endpoint/RephraseContent",
+        "api-reference/endpoint/TextExtender"
       ]
     }
   ],

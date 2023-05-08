@@ -1,22 +1,23 @@
 ---
-title: "Instruct Prompt"
-api: "POST https://api-v2.longshot.ai/custom/api/generate/instruct"
-description: "This endpoint allows you to instruct the prompt for specific information about the content passed as input. Add escape sequences in text wherever necessary."
+title: "Text Extender"
+api: "POST https://api-v2.longshot.ai/custom/api/generate/extend/content"
+description: "This endpoint allows you to extend the text for more information about the content passed."
 ---
 
 ### Headers
 
-<ParamField header="authorization" type="string" placeholder="Bearer <Secret Token>" required>
+<ParamField header="AUTHORIZATION" type="string" placeholder="Bearer <Secret Token>" required>
   Add the Authorization Bearer Token to authorize your api request.
 </ParamField>
 
 ### Body
 
-<ParamField body="text" type="string">
-  This field is used to Prompt instruction with the text.
+<ParamField body="TEXT" type="string">
+  This field is used to input content you want to be extended.
   
   Example: 
-  "5 popular food places for this text:\”Authentic Indian wine with the French style\”"
+  "Mumbai is in the tropics, which means that it is very close to the equator and receives a lot of rainfall throughout the year. 
+  The city's drainage network is inadequate, exacerbating the flooding from tropical cyclones."
 </ParamField>
 
 ### Response
@@ -32,15 +33,15 @@ The contents of the copies
 <Expandable title="Toggle object">
 
 <ResponseField name="content" type="string">
-  This is the response of the content generated from the instruction prompt.
+  This is the extended content generated from the api.
 </ResponseField>
 
 </Expandable>
 
 </ResponseField>
 
-<ResponseField name="citations" type="string">
-  This array provides the source / links of the sources which have been considered while writing the generated content.
+<ResponseField name="text" type="string">
+  The input text provided to text extender.
 </ResponseField>
 
 <ResponseField name="message" type="string">
@@ -54,7 +55,7 @@ The contents of the copies
 <RequestExample>
 
 ```bash Example Request
-curl --location --request POST 'https://api-v2.longshot.ai/custom/api/generate/instruct' \
+curl --location --request POST 'https://api-v2.longshot.ai/custom/api/generate/extend/content' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer <token>' \
 --data-raw '{
@@ -73,7 +74,6 @@ curl --location --request POST 'https://api-v2.longshot.ai/custom/api/generate/i
 			"content": "<Generated Content>"
 		}
 	],
-	"citations": [],
 	"status": "success",
 	"message": "copies generated successfully",
 	"credits_used": <Credits>
