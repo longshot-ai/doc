@@ -1,7 +1,7 @@
 ---
-title: "Text Extender"
-api: "POST https://api-v2.longshot.ai/custom/api/generate/extend/content"
-description: "This endpoint allows you to extend the text for more information about the content passed."
+title: "Paragraph Shredder"
+api: "POST https://api-v2.longshot.ai/custom/api/generate/factgpt/custom"
+description: "This endpoint allows you to generate the factual data - which we call as FactGPT."
 ---
 
 ### Headers
@@ -12,12 +12,13 @@ description: "This endpoint allows you to extend the text for more information a
 
 ### Body
 
-<ParamField body="text" type="string" required>
-  This field is used to input content you want to be extended.
+<ParamField body="instruction" type="string" required>
+  This field is used as input the text as instructional prompt.
   
   Example: 
-  "Mumbai is in the tropics, which means that it is very close to the equator and receives a lot of rainfall throughout the year. 
-  The city's drainage network is inadequate, exacerbating the flooding from tropical cyclones."
+  "Generate a list of 5 frequently asked questions for this text:"Mumbai is a city with many bright tourist spots"" 
+  OR
+  "Bard: Google answer to ChatGPT"
 </ParamField>
 
 ### Response
@@ -33,15 +34,15 @@ The contents of the copies
 <Expandable title="Toggle object">
 
 <ResponseField name="content" type="string">
-  This is the extended content generated from the api.
+  This is the generated factual content.
 </ResponseField>
 
 </Expandable>
 
 </ResponseField>
 
-<ResponseField name="text" type="string">
-  The input text provided to text extender.
+<ResponseField name="citations" type="string">
+  This array provides the source / links of the sources which have been considered while writing the generated content.
 </ResponseField>
 
 <ResponseField name="message" type="string">
@@ -55,11 +56,12 @@ The contents of the copies
 <RequestExample>
 
 ```bash Example Request
-curl --location --request POST 'https://api-v2.longshot.ai/custom/api/generate/extend/content' \
+curl --location --request POST 'https://api-v2.longshot.ai/custom/api/generate/paragraph/shredder' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer <token>' \
+-H 'Content-Type: application/json' \
 --data-raw '{
-    "text": ""
+    "instruction": ""
 }'
 ```
 
@@ -71,11 +73,12 @@ curl --location --request POST 'https://api-v2.longshot.ai/custom/api/generate/e
 {
 	"copies": [
 		{
-			"content": "<Generated Content>"
+			"content": "<Generated Shredded Paragraph>"
 		}
 	],
+  "citations" : []
 	"status": "success",
-	"message": "copies generated successfully",
+	"message": "Generated successfully",
 	"credits_used": <Credits>
 }
 ```

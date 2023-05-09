@@ -1,7 +1,7 @@
 ---
-title: "Text Extender"
-api: "POST https://api-v2.longshot.ai/custom/api/generate/extend/content"
-description: "This endpoint allows you to extend the text for more information about the content passed."
+title: "Paragraph Shredder"
+api: "POST https://api-v2.longshot.ai/custom/api/content/paragraph/shredder"
+description: "This endpoint allows you to shred or trim a paragraph. Provides shorter version of the paragraph with the complete meaning associated."
 ---
 
 ### Headers
@@ -12,12 +12,12 @@ description: "This endpoint allows you to extend the text for more information a
 
 ### Body
 
-<ParamField body="text" type="string" required>
-  This field is used to input content you want to be extended.
+<ParamField body="paragraph" type="string" required>
+  This field is used as input to provide an paragraph.
   
   Example: 
-  "Mumbai is in the tropics, which means that it is very close to the equator and receives a lot of rainfall throughout the year. 
-  The city's drainage network is inadequate, exacerbating the flooding from tropical cyclones."
+  "Multi-tenancy is an architecture pattern in which a single instance of a software application serves multiple tenants (customers or users) independently, while maintaining their data and configurations isolated from one another.
+  This approach allows multiple tenants to share resources such as compute, storage, and network infrastructure, which can lead to improved cost efficiency, ease of maintenance, and scalability for the service provider."
 </ParamField>
 
 ### Response
@@ -33,15 +33,11 @@ The contents of the copies
 <Expandable title="Toggle object">
 
 <ResponseField name="content" type="string">
-  This is the extended content generated from the api.
+  This is the shredded paragraph content.
 </ResponseField>
 
 </Expandable>
 
-</ResponseField>
-
-<ResponseField name="text" type="string">
-  The input text provided to text extender.
 </ResponseField>
 
 <ResponseField name="message" type="string">
@@ -55,11 +51,12 @@ The contents of the copies
 <RequestExample>
 
 ```bash Example Request
-curl --location --request POST 'https://api-v2.longshot.ai/custom/api/generate/extend/content' \
+curl --location --request POST 'https://api-v2.longshot.ai/custom/api/generate/paragraph/shredder' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer <token>' \
+-H 'Content-Type: application/json' \
 --data-raw '{
-    "text": ""
+    "paragraph": ""
 }'
 ```
 
@@ -71,11 +68,11 @@ curl --location --request POST 'https://api-v2.longshot.ai/custom/api/generate/e
 {
 	"copies": [
 		{
-			"content": "<Generated Content>"
+			"content": "<Generated Shredded Paragraph>"
 		}
 	],
 	"status": "success",
-	"message": "copies generated successfully",
+	"message": "Generated successfully",
 	"credits_used": <Credits>
 }
 ```

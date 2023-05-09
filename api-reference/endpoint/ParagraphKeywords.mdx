@@ -1,7 +1,7 @@
 ---
-title: "Rephrase your content"
-api: "POST https://api-v2.longshot.ai/custom/api/content/rephrase"
-description: "This endpoint lets you rephrase your content passed as input."
+title: "Paragraph from Keywords"
+api: "POST https://api-v2.longshot.ai/custom/api/generate/paragraph/keywords"
+description: "This endpoint allows you to generate a paragraph for from the keywords."
 ---
 
 ### Headers
@@ -12,11 +12,11 @@ description: "This endpoint lets you rephrase your content passed as input."
 
 ### Body
 
-<ParamField body="text" type="string" required>
-   This field is to input text you want to rephrase.
-   
-   Example:
-  "Tesla has launched its coolest car yet. Equipped with the latest in tech, it is soon becoming a symbol of style among millennials and gen x alike."
+<ParamField body="keywords" type="string" required>
+  This field is used as input to provide comma seperated keywords.
+  
+  Example: 
+  "Mumbai, floods, cyclone, weather, report"
 </ParamField>
 
 ### Response
@@ -32,29 +32,30 @@ The contents of the copies
 <Expandable title="Toggle object">
 
 <ResponseField name="content" type="string">
-  This is the rephrased content generated from the api.
+  This is the paragraph content generated from the keywords.
 </ResponseField>
 
 </Expandable>
 
 </ResponseField>
 
-<ResponseField name="text" type="string">
-  The input text provided to be rephrased.
-</ResponseField>
-
 <ResponseField name="message" type="string">
   This is the information attached to the call. This is useful when any error occurs, it provides more meaningful information about it. 
+</ResponseField>
+
+<ResponseField name="credits_used" type="number">
+  This field informs you about the credits used for this particular request. It varies upon the generated content.
 </ResponseField>
 
 <RequestExample>
 
 ```bash Example Request
-curl --location --request POST 'https://api-v2.longshot.ai/custom/api/content/rephrase' \
+curl --location --request POST 'https://api-v2.longshot.ai/custom/api/generate/paragraph/keywords' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer <token>' \
+-H 'Content-Type: application/json' \
 --data-raw '{
-    "text": ""
+    "keywords": ""
 }'
 ```
 
@@ -66,12 +67,12 @@ curl --location --request POST 'https://api-v2.longshot.ai/custom/api/content/re
 {
 	"copies": [
 		{
-			"content": "<Rephrased Content>"
+			"content": "<Generated Paragraph>"
 		}
 	],
-	"text": "<Input Text>",
 	"status": "success",
-	"message": "copies generated successfully"
+	"message": "Generated successfully",
+	"credits_used": <Credits>
 }
 ```
 
