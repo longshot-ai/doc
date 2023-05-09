@@ -50,9 +50,13 @@
     {
       "group": "Feature Endpoint",
       "pages": [
+        "api-reference/endpoint/FactGPT",
         "api-reference/endpoint/InstructPrompt",
         "api-reference/endpoint/RephraseContent",
-        "api-reference/endpoint/TextExtender"
+        "api-reference/endpoint/TextExtender",
+        "api-reference/endpoint/ParagraphKeywords",
+        "api-reference/endpoint/ParagraphBulletpts",
+        "api-reference/endpoint/ParagraphShredder"
       ]
     }
   ],
