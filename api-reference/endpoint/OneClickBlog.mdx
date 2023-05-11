@@ -1,0 +1,107 @@
+---
+title: "One Click Blog"
+api: "POST https://api-v2.longshot.ai/custom/api/generate/one/click/blog"
+description: "This endpoint allows you to generate a entire blog in just one click."
+---
+
+### Headers
+
+<ParamField header="AUTHORIZATION" type="string" placeholder="Bearer <Secret Token>" required>
+  Add the Authorization Bearer Token to authorize your api request.
+</ParamField>
+
+### Body
+
+<ParamField body="topic" type="string" required>
+  This input field needs to filed with topic user wants to write on.
+  
+  Example: 
+  "Lithium Ion discovery in India" 
+  OR
+  "Bard: Google answer to ChatGPT"
+</ParamField>
+
+<ParamField body="description" type="string" required>
+  Subsequently, this input field is for some description regarding the topic.
+  
+  Example: 
+  "Future of manufacturing in India, following Lithium Ion discovery"
+</ParamField>
+
+<ParamField body="blog_type" type="string" default="listicle" required>
+  This input field defines the what type of blog you want. 
+  
+  Following are the blog_types you can use
+  1. how_to,
+  2. listicle,
+  3. pillar,
+  4. comparison,
+  5. product_review,
+  6. product_alternative
+</ParamField>
+
+<ParamField body="serp" type="string" default="true">
+  This boolean input field specifes whether or not you want serp for the generated blog.
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="string">
+  Indicates whether the call was successful. success if successful, otherwise if not.
+</ResponseField>
+
+<ResponseField name="copies" type="object">
+
+The contents of the copies
+
+<Expandable title="Toggle object">
+
+<ResponseField name="content" type="string">
+  This is the generated one click blog (HTML formatted).
+</ResponseField>
+
+</Expandable>
+
+</ResponseField>
+
+<ResponseField name="message" type="string">
+  This is the information attached to the call. This is useful when any error occurs, it provides more meaningful information about it. 
+</ResponseField>
+
+<ResponseField name="credits_used" type="number">
+  This field informs you about the credits used for this particular request. It varies upon the generated content.
+</ResponseField>
+
+<RequestExample>
+
+```bash Example Request
+curl --location --request POST 'https://api-v2.longshot.ai/custom/api/generate/one/click/blog' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer <token>' \
+-H 'Content-Type: application/json' \
+--data-raw '{
+    "topic": "",
+    "description": "",
+    "blog_type": "listicle",
+    "serp": true
+}'
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+	"copies": [
+		{
+			"content": "<Generated Blog>"
+		}
+	],
+	"status": "success",
+	"message": "Generated successfully",
+	"credits_used": <Credits>
+}
+```
+
+</ResponseExample>
