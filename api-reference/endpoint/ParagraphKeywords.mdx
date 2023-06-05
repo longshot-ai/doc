@@ -1,19 +1,19 @@
 ---
 title: "Paragraph from Keywords"
 api: "POST https://api-v2.longshot.ai/custom/api/generate/paragraph/keywords"
-description: "This endpoint allows you to generate a paragraph for from the keywords."
+description: "This endpoint allows you to generate a paragraph from suggested keywords."
 ---
 
 ### Headers
 
-<ParamField header="AUTHORIZATION" type="string" placeholder="Bearer <Secret Token>" required>
-  Add the Authorization Bearer Token to authorize your api request.
+<ParamField header="Authorization" type="string" placeholder="Bearer <Secret Token>" required>
+  Input the Authorization Bearer Token to authorize your API request.
 </ParamField>
 
 ### Body
 
 <ParamField body="keywords" type="string" required>
-  This field is used as input to provide comma seperated keywords.
+  This field is used as an input for keywords separated by commas to generate relevant paragraphs.
   
   Example: 
   "Mumbai, floods, cyclone, weather, report"
@@ -22,17 +22,17 @@ description: "This endpoint allows you to generate a paragraph for from the keyw
 ### Response
 
 <ResponseField name="status" type="string">
-  Indicates whether the call was successful. success if successful, otherwise if not.
+  Indicates whether the call was successful. It prompts success if working, otherwise not.
 </ResponseField>
 
 <ResponseField name="copies" type="object">
 
-The contents of the copies
+The generated content.
 
 <Expandable title="Toggle object">
 
 <ResponseField name="content" type="string">
-  This is the paragraph content generated from the keywords.
+  This is the paragraph generated from the input keywords.
 </ResponseField>
 
 </Expandable>
@@ -40,11 +40,11 @@ The contents of the copies
 </ResponseField>
 
 <ResponseField name="message" type="string">
-  This is the information attached to the call. This is useful when any error occurs, it provides more meaningful information about it. 
+  This information is attached to the call and offers meaningful details when errors occur.
 </ResponseField>
 
 <ResponseField name="credits_used" type="number">
-  This field informs you about the credits used for this particular request. It varies upon the generated content.
+  This field informs you about the credits consumed for this particular request. It varies on the generated content.
 </ResponseField>
 
 <RequestExample>

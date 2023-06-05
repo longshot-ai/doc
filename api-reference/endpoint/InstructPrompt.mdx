@@ -1,38 +1,38 @@
 ---
 title: "Instruct Prompt"
 api: "POST https://api-v2.longshot.ai/custom/api/generate/instruct"
-description: "This endpoint allows you to instruct the prompt for specific information about the content passed as input. Add escape sequences in text wherever necessary."
+description: "This endpoint allows you to instruct or command AI to generate content based on your prompt. Add escape sequences in the text wherever necessary."
 ---
 
 ### Headers
 
-<ParamField header="authorization" type="string" placeholder="Bearer <Secret Token>" required>
-  Add the Authorization Bearer Token to authorize your api request.
+<ParamField header="Authorization" type="string" placeholder="Bearer <Secret Token>" required>
+  Input the Authorization Bearer Token to authorize your API request.
 </ParamField>
 
 ### Body
 
 <ParamField body="text" type="string" required>
-  This field is used to Prompt instruction with the text.
+  This field is used to input the prompt (text instruction) to generate results.
   
   Example: 
-  "5 popular food places for this text:\”Authentic Indian wine with the French style\”"
+  “Mention 5 popular food places in Mumbai for this text:\” Authentic Indian wine with the French style\””
 </ParamField>
 
 ### Response
 
 <ResponseField name="status" type="string">
-  Indicates whether the call was successful. success if successful, otherwise if not.
+  Indicates whether the call was successful. It prompts success if working, otherwise not.
 </ResponseField>
 
 <ResponseField name="copies" type="object">
 
-The contents of the copies
+The generated content.
 
 <Expandable title="Toggle object">
 
 <ResponseField name="content" type="string">
-  This is the response of the content generated from the instruction prompt.
+  This is the response to the content generated from the instruction prompt.
 </ResponseField>
 
 </Expandable>
@@ -40,15 +40,15 @@ The contents of the copies
 </ResponseField>
 
 <ResponseField name="citations" type="string">
-  This array provides the source / links of the sources which have been considered while writing the generated content.
+  This array provides the links of the sources considered while generating content.
 </ResponseField>
 
 <ResponseField name="message" type="string">
-  This is the information attached to the call. This is useful when any error occurs, it provides more meaningful information about it. 
+  This information is attached to the call and offers meaningful details when errors occur.
 </ResponseField>
 
 <ResponseField name="credits_used" type="number">
-  This field informs you about the credits used for this particular request. It varies upon the generated content.
+  This field informs you about the credits consumed for this particular request. It varies on the generated content.
 </ResponseField>
 
 <RequestExample>

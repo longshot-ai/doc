@@ -1,19 +1,19 @@
 ---
 title: "Text Extender"
 api: "POST https://api-v2.longshot.ai/custom/api/generate/extend/content"
-description: "This endpoint allows you to extend the text for more information about the content passed."
+description: "This endpoint allows you to extend (or expand) your existing text or paragraph for better depth."
 ---
 
 ### Headers
 
-<ParamField header="AUTHORIZATION" type="string" placeholder="Bearer <Secret Token>" required>
-  Add the Authorization Bearer Token to authorize your api request.
+<ParamField header="Authorization" type="string" placeholder="Bearer <Secret Token>" required>
+  Input the Authorization Bearer Token to authorize your API request.
 </ParamField>
 
 ### Body
 
 <ParamField body="text" type="string" required>
-  This field is used to input content you want to be extended.
+  This field inputs content you want to extend.
   
   Example: 
   "Mumbai is in the tropics, which means that it is very close to the equator and receives a lot of rainfall throughout the year. 
@@ -23,17 +23,17 @@ description: "This endpoint allows you to extend the text for more information a
 ### Response
 
 <ResponseField name="status" type="string">
-  Indicates whether the call was successful. success if successful, otherwise if not.
+  Indicates whether the call was successful. It prompts success if working, otherwise not.
 </ResponseField>
 
 <ResponseField name="copies" type="object">
 
-The contents of the copies
+The generated content.
 
 <Expandable title="Toggle object">
 
 <ResponseField name="content" type="string">
-  This is the extended content generated from the api.
+  This is the extended content generated from the API.
 </ResponseField>
 
 </Expandable>
@@ -41,15 +41,15 @@ The contents of the copies
 </ResponseField>
 
 <ResponseField name="text" type="string">
-  The input text provided to text extender.
+  This is the input text provided to the text extender.
 </ResponseField>
 
 <ResponseField name="message" type="string">
-  This is the information attached to the call. This is useful when any error occurs, it provides more meaningful information about it. 
+  This information is attached to the call and offers meaningful details when errors occur.
 </ResponseField>
 
 <ResponseField name="credits_used" type="number">
-  This field informs you about the credits used for this particular request. It varies upon the generated content.
+  This field informs you about the credits consumed for this particular request. It varies on the generated content.
 </ResponseField>
 
 <RequestExample>

@@ -1,19 +1,19 @@
 ---
 title: "Paragraph Shredder"
 api: "POST https://api-v2.longshot.ai/custom/api/content/paragraph/shredder"
-description: "This endpoint allows you to shred or trim a paragraph. Provides shorter version of the paragraph with the complete meaning associated."
+description: "This endpoint allows you to shred or trim a long paragraph into a shorter one with the complete meaning associated."
 ---
 
 ### Headers
 
-<ParamField header="AUTHORIZATION" type="string" placeholder="Bearer <Secret Token>" required>
-  Add the Authorization Bearer Token to authorize your api request.
+<ParamField header="Authorization" type="string" placeholder="Bearer <Secret Token>" required>
+  Input the Authorization Bearer Token to authorize your API request.
 </ParamField>
 
 ### Body
 
 <ParamField body="paragraph" type="string" required>
-  This field is used as input to provide an paragraph.
+  This field is used as input for a paragraph that needs to be shredded.
   
   Example: 
   "Multi-tenancy is an architecture pattern in which a single instance of a software application serves multiple tenants (customers or users) independently, while maintaining their data and configurations isolated from one another.
@@ -23,17 +23,17 @@ description: "This endpoint allows you to shred or trim a paragraph. Provides sh
 ### Response
 
 <ResponseField name="status" type="string">
-  Indicates whether the call was successful. success if successful, otherwise if not.
+  Indicates whether the call was successful. It prompts success if working, otherwise not.
 </ResponseField>
 
 <ResponseField name="copies" type="object">
 
-The contents of the copies
+The generated content.
 
 <Expandable title="Toggle object">
 
 <ResponseField name="content" type="string">
-  This is the shredded paragraph content.
+  This is the shredded paragraph.
 </ResponseField>
 
 </Expandable>
@@ -41,11 +41,11 @@ The contents of the copies
 </ResponseField>
 
 <ResponseField name="message" type="string">
-  This is the information attached to the call. This is useful when any error occurs, it provides more meaningful information about it. 
+  This information is attached to the call and offers meaningful details when errors occur.
 </ResponseField>
 
 <ResponseField name="credits_used" type="number">
-  This field informs you about the credits used for this particular request. It varies upon the generated content.
+  This field informs you about the credits consumed for this particular request. It varies on the generated content.
 </ResponseField>
 
 <RequestExample>

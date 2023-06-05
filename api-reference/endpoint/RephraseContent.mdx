@@ -1,38 +1,38 @@
 ---
 title: "Rephrase your content"
 api: "POST https://api-v2.longshot.ai/custom/api/content/rephrase"
-description: "This endpoint lets you rephrase your content passed as input."
+description: "This endpoint lets you rephrase your content based on your input to convey your message better."
 ---
 
 ### Headers
 
-<ParamField header="AUTHORIZATION" type="string" placeholder="Bearer <Secret Token>" required>
-  Add the Authorization Bearer Token to authorize your api request.
+<ParamField header="Authorization" type="string" placeholder="Bearer <Secret Token>" required>
+  Input the Authorization Bearer Token to authorize your API request.
 </ParamField>
 
 ### Body
 
 <ParamField body="text" type="string" required>
-   This field is to input text you want to rephrase.
+   This field is to input the text you want to rephrase.
    
-   Example:
-  "Tesla has launched its coolest car yet. Equipped with the latest in tech, it is soon becoming a symbol of style among millennials and gen x alike."
+   Example: 
+   "Tesla has launched its coolest car yet. Equipped with the latest tech, it's becoming a symbol of style among Millennials and Gen X alike. And it's quite easy on the environment."
 </ParamField>
 
 ### Response
 
 <ResponseField name="status" type="string">
-  Indicates whether the call was successful. success if successful, otherwise if not.
+  Indicates whether the call was successful. It prompts success if working, otherwise not.
 </ResponseField>
 
 <ResponseField name="copies" type="object">
 
-The contents of the copies
+The generated content.
 
 <Expandable title="Toggle object">
 
 <ResponseField name="content" type="string">
-  This is the rephrased content generated from the api.
+  This is the rephrased content generated from the API.
 </ResponseField>
 
 </Expandable>
@@ -40,11 +40,11 @@ The contents of the copies
 </ResponseField>
 
 <ResponseField name="text" type="string">
-  The input text provided to be rephrased.
+  This is the input text you passed, to rephrase.
 </ResponseField>
 
 <ResponseField name="message" type="string">
-  This is the information attached to the call. This is useful when any error occurs, it provides more meaningful information about it. 
+  This information is attached to the call and offers meaningful details when errors occur. 
 </ResponseField>
 
 <RequestExample>

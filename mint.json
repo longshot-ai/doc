@@ -28,14 +28,9 @@
       "url": "api-reference"
     },
     {
-      "name": "Changelog",
-      "icon": "list",
-      "url": "#"
-    },
-    {
       "name": "Community",
       "icon": "discord",
-      "url": "#"
+      "url": "https://discord.gg/BxnJdXqvV3"
     }
   ],
   "navigation": [

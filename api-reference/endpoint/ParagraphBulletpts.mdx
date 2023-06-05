@@ -6,14 +6,14 @@ description: "This endpoint allows you to generate a paragraph from the bullet p
 
 ### Headers
 
-<ParamField header="AUTHORIZATION" type="string" placeholder="Bearer <Secret Token>" required>
-  Add the Authorization Bearer Token to authorize your api request.
+<ParamField header="Authorization" type="string" placeholder="Bearer <Secret Token>" required>
+  Input the Authorization Bearer Token to authorize your API request.
 </ParamField>
 
 ### Body
 
 <ParamField body="bullet_points" type="string" required>
-  This field is used as input to provide an array of bullet_points.
+  This field is used as an input to provide an array of bullet points to generate a paragraph.
   
   Example: 
   ["What is FOMO","What are the main causes of FOMO","How can you avoid FOMO"]
@@ -22,17 +22,17 @@ description: "This endpoint allows you to generate a paragraph from the bullet p
 ### Response
 
 <ResponseField name="status" type="string">
-  Indicates whether the call was successful. success if successful, otherwise if not.
+  Indicates whether the call was successful. It prompts success if working, otherwise not.
 </ResponseField>
 
 <ResponseField name="copies" type="object">
 
-The contents of the copies
+The generated content.
 
 <Expandable title="Toggle object">
 
 <ResponseField name="content" type="string">
-  This is the paragraph content generated from the bullet points.
+  This is the paragraph generated from the bullet points.
 </ResponseField>
 
 </Expandable>
@@ -40,11 +40,11 @@ The contents of the copies
 </ResponseField>
 
 <ResponseField name="message" type="string">
-  This is the information attached to the call. This is useful when any error occurs, it provides more meaningful information about it. 
+  This information is attached to the call and offers meaningful details when errors occur.
 </ResponseField>
 
 <ResponseField name="credits_used" type="number">
-  This field informs you about the credits used for this particular request. It varies upon the generated content.
+  This field informs you about the credits consumed for this particular request. It varies on the generated content.
 </ResponseField>
 
 <RequestExample>

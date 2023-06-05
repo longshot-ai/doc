@@ -1,15 +1,17 @@
 ---
 title: "Authentication"
-description: "Authentication information before making any API request."
+description: "Learn more about the Authentication information before making any API request."
 ---
 
-All API uses the Bearer token or Secret Token to authenticate requests.
+All LongShot API's requires the Bearer Token or Secret Token to authenticate requests.
 
-The LongShot API uses Bearer Token to authenticate requests. We will provide you with a custom secret / Bearer Token at the time of setup.
+LongShot API uses a customized Bearer Token to authenticate a user request during setup. 
 
-Your Bearer / Secret Token carry many privileges, so be sure to keep them secure! Do not share your secret token in publicly accessible areas such as GitHub, client-side code, and so forth.
+This exclusive Bearer or Secret Token carries various privileges, so keep them secure and do not share it in publicly accessible areas like GitHub, client-side code, etc.
 
-Authentication to the API's is performed via HTTP Basic Auth. Provide your Secret token on all the api request you make.
+Authentication to the APIs is performed via HTTP Basic Auth.
+
+Provide your Secret token on all your API requests, and you're good to go.
 
 ```bash
 'Authorization': 'Bearer <Secret_token>'
@@ -19,6 +21,6 @@ Authentication to the API's is performed via HTTP Basic Auth. Provide your Secre
 
 To authenticate via bearer auth (e.g., for a cross-origin request), use -H "Authorization: Bearer sk_test_4eC39HqLyjWDarjtT1zdp7dc" instead of just sk_test_4eC39HqLyjWDarjtT1zdp7dc.
 
-The Bearer authentication scheme was originally created as part of OAuth 2.0 in RFC 6750, but is sometimes also used on its own. Similarly to Basic authentication, Bearer authentication should only be used over HTTPS (SSL)
+The Bearer authentication scheme was created as part of OAuth 2.0 in RFC 6750 but is sometimes used independently. Similarly to Basic authentication, Bearer authentication should only be used over HTTPS (SSL).
 
-All API requests must be made over HTTPS. Calls made over plain HTTP will fail. API requests without authentication will also fail.
+Note: All API requests must be made over HTTPS. Calls made over plain HTTP will fail. API requests without authentication will also fail.
