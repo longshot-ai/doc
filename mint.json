@@ -28,9 +28,9 @@
       "url": "api-reference"
     },
     {
-      "name": "Community",
-      "icon": "discord",
-      "url": "https://discord.gg/BxnJdXqvV3"
+      "name": "Get your API key",
+      "icon": "key",
+      "url": "https://www.longshot.ai/demo"
     }
   ],
   "navigation": [
