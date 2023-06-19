@@ -1,0 +1,86 @@
+---
+title: "Claim Detection"
+api: "POST https://api-v2.longshot.ai/custom/api/detect/claims"
+description: "This endpoint enables you to detect And verify content claims."
+---
+
+### Headers
+
+<ParamField header="Authorization" type="string" placeholder="Bearer <Secret Token>" required>
+  Input the Authorization Bearer Token to authorize your API request.
+</ParamField>
+
+### Body
+
+<ParamField body="blog" type="string" required>
+  This input field requires the user to input the blog for detecting the claims.
+  
+</ParamField>
+
+<ParamField body="url" type="url" required>
+  This input field requires the user to provide url for detecting claims.
+  
+  Example: 
+  "https://www.capitalism.com/nerdwallet/"
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="string">
+  Indicates whether the call was successful. It prompts success if working, otherwise not.
+</ResponseField>
+
+<ResponseField name="copies" type="object">
+
+The detected claims.
+
+<Expandable title="Toggle object">
+
+<ResponseField name="content" type="string">
+  Here are the claims detected from the blog / url.
+</ResponseField>
+
+</Expandable>
+
+</ResponseField>
+
+<ResponseField name="message" type="string">
+  This information is attached to the call and offers meaningful details when errors occur.
+</ResponseField>
+
+<ResponseField name="credits_used" type="number">
+  This field informs you about the credits consumed for this particular request. It varies on the generated content for different use cases.
+</ResponseField>
+
+<RequestExample>
+
+```bash Example Request
+curl --location --request POST 'https://api-v2.longshot.ai/custom/api/detect/claims' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer <token>' \
+-H 'Content-Type: application/json' \
+--data-raw '{
+    "blog": "",
+    "url": ""
+}'
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+	"copies": [
+		{
+			"content": "<Detected Claims>",
+      "content": "<Detected Claims>"
+		}
+	],
+	"status": "success",
+	"message": "Generated successfully",
+	"credits_used": <Credits>
+}
+```
+
+</ResponseExample>

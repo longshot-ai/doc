@@ -52,7 +52,8 @@
         "api-reference/endpoint/TextExtender",
         "api-reference/endpoint/ParagraphKeywords",
         "api-reference/endpoint/ParagraphBulletpts",
-        "api-reference/endpoint/ParagraphShredder"
+        "api-reference/endpoint/ParagraphShredder",
+        "api-reference/endpoint/DetectClaims"
       ]
     }
   ],
