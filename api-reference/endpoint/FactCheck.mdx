@@ -1,0 +1,109 @@
+---
+title: "Fact Check"
+api: "POST https://api-v2.longshot.ai/custom/api/blog/fact/check"
+description: "This endpoint enables you to verify factual accuracy of content."
+---
+
+### Headers
+
+<ParamField header="Authorization" type="string" placeholder="Bearer <Secret Token>" required>
+  Input the Authorization Bearer Token to authorize your API request.
+</ParamField>
+
+### Body
+
+<ParamField body="claim" type="string" required>
+  This input field requires the user to input the claim that needs to be verified.
+  
+  Example:
+  "The second investments was over $100 million from capital venturers"
+</ParamField>
+
+<ParamField body="blog_topic" type="string" required>
+  This input field requires the user to input main topic of the blog.
+  
+  Example: 
+  "NerdWallet: What Entrepreneurs Can Learn from this Personal Finance Brand"
+</ParamField>
+
+<ParamField body="blog_topic" type="string" default="en" required>
+  This input field requires the user to input the language; currently we allow only "en" - English.
+  Further support for other languages will be added soon.
+  
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="string">
+  Indicates whether the call was successful. It prompts success if working, otherwise not.
+</ResponseField>
+
+<ResponseField name="copies" type="string">
+  This field answers in detail whether the claim is a fact or not.
+</ResponseField>
+
+<ResponseField name="citations" type="object">
+
+The array of citated facts, links and their scores.
+
+<Expandable title="Toggle object">
+
+<ResponseField name="fact" type="string">
+  The actual fact corresponding to the claim.
+</ResponseField>
+
+<ResponseField name="link" type="url">
+  The url link for the fact source.
+</ResponseField>
+
+<ResponseField name="score" type="number">
+  Generated score for facts accuracy.
+</ResponseField>
+
+</Expandable>
+
+</ResponseField>
+
+<ResponseField name="credits_used" type="number">
+  This field informs you about the credits consumed for this particular request. It varies on the generated content for different use cases.
+</ResponseField>
+
+<RequestExample>
+
+```bash Example Request
+curl --location --request POST 'https://api-v2.longshot.ai/custom/api/blog/fact/check' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer <token>' \
+-H 'Content-Type: application/json' \
+--data-raw '{
+    "claim": "",
+    "blog_topic": "",
+    "language": "en"
+}'
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+	"copies": "",
+  "citations":[
+		{
+			"fact": "<Citated Fact>",
+      "link": "<url to source of fact>",
+      "score": "<Calculated score>"
+		},
+    {
+			"fact": "<Citated Fact>",
+      "link": "<url to source of fact>",
+      "score": "<Calculated score>"
+		}
+	],
+	"status": "success",
+	"credits_used": <Credits>
+}
+```
+
+</ResponseExample>

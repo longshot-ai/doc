@@ -53,7 +53,8 @@
         "api-reference/endpoint/ParagraphKeywords",
         "api-reference/endpoint/ParagraphBulletpts",
         "api-reference/endpoint/ParagraphShredder",
-        "api-reference/endpoint/DetectClaims"
+        "api-reference/endpoint/DetectClaims",
+        "api-reference/endpoint/FactCheck"
       ]
     }
   ],
