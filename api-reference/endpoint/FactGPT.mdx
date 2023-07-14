@@ -4,6 +4,8 @@ api: "POST https://api-v2.longshot.ai/custom/api/generate/factgpt/custom"
 description: "This endpoint allows you to generate fresh and relevant factually accurate content- FactGPT."
 ---
 
+#### If no response is received here due to the extended generation time required by this API, we suggest utilizing a local API platform such as Postman or directly accessing the API through your project.
+
 ### Headers
 
 <ParamField header="Authorization" type="string" placeholder="Bearer <Secret Token>" required>
@@ -59,7 +61,6 @@ description: "This endpoint allows you to generate fresh and relevant factually 
 
 ### Response
 
-### If no response is received here due to the extended generation time required by this API, we suggest utilizing a local API platform such as Postman or directly accessing the API through your project.
 <ResponseField name="status" type="string">
   Indicates whether the call was successful. It prompts success if working, otherwise not.
 </ResponseField>
