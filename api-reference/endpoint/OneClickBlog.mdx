@@ -8,7 +8,12 @@ If no response is received here due to the extended generation time required by 
 
 ### Headers
 
-<ParamField header="Authorization" type="string" placeholder="Bearer <Secret Token>" required>
+<ParamField
+  header="Authorization"
+  type="string"
+  placeholder="Bearer <Secret Token>"
+  required
+>
   Input the Authorization Bearer Token to authorize your API request.
 </ParamField>
 
@@ -16,50 +21,46 @@ If no response is received here due to the extended generation time required by 
 
 <ParamField body="topic" type="string" required>
   This input field requires the user to mention the topic they wish to write on.
-  
-  Example: 
-  "Lithium Ion discovery in India" 
-  OR
-  "Bard: Google answer to ChatGPT"
+  Example: "Lithium Ion discovery in India" OR "Bard: Google answer to ChatGPT"
 </ParamField>
 
 <ParamField body="description" type="string" required>
-  This input field requires the user to elaborate on the topic they wish to write on.
-  
-  Example: 
-  "Showcase the future of manufacturing in India, following Lithium Ion discovery."
+  This input field requires the user to elaborate on the topic they wish to
+  write on. Example: "Showcase the future of manufacturing in India, following
+  Lithium Ion discovery."
 </ParamField>
 
 <ParamField body="blog_type" type="string" default="listicle" required>
-  This input field defines the type of blog you wish to generate.
-  
-  Following are the blog_types you can use
-  1. how_to,
-  2. listicle,
-  3. pillar,
-  4. comparison,
-  5. product_review,
-  6. product_alternative
+  This input field defines the type of blog you wish to generate. Following are
+  the blog_types you can use 1. how_to, 2. listicle, 3. pillar, 4. comparison,
+  5. product_review, 6. product_alternative
 </ParamField>
 
 <ParamField body="mode" type="string" default="serp" required>
-  This field is used to decide the mode of the generation. 
+  This field is used to decide the mode of the generation.
 
-  Modes are as follows:
-  1. serp
-  2. domain
-  
+Modes are as follows:
+
+1. serp
+2. domain
+
 </ParamField>
 
 <ParamField body="domain_list" type="string">
-  This field is used to input the array of the domains you want to provide as a reference, while generating the content.
-  This field needs to be passed if mode is "domain".
+  This field is used to input the array of the domains you want to provide as a
+  reference, while generating the content. This field needs to be passed if mode
+  is "domain".
+</ParamField>
+
+<ParamField body="formality" type="string" default="casual" required>
+  This field is used to input formality to your generated content.
 </ParamField>
 
 ### Response
 
 <ResponseField name="status" type="string">
-  Indicates whether the call was successful. It prompts success if working, otherwise not.
+  Indicates whether the call was successful. It prompts success if working,
+  otherwise not.
 </ResponseField>
 
 <ResponseField name="copies" type="object">
@@ -77,11 +78,13 @@ The generated content.
 </ResponseField>
 
 <ResponseField name="message" type="string">
-  This information is attached to the call and offers meaningful details when errors occur.
+  This information is attached to the call and offers meaningful details when
+  errors occur.
 </ResponseField>
 
 <ResponseField name="credits_used" type="number">
-  This field informs you about the credits consumed for this particular request. It varies on the generated content for different use cases.
+  This field informs you about the credits consumed for this particular request.
+  It varies on the generated content for different use cases.
 </ResponseField>
 
 <RequestExample>
@@ -96,7 +99,8 @@ curl --location --request POST 'https://api-v2.longshot.ai/custom/api/generate/o
     "description": "",
     "blog_type": "listicle",
     "mode": "serp",
-    "domain_list": []
+    "domain_list": [],
+    "formality": "casual"
 }'
 ```
 
