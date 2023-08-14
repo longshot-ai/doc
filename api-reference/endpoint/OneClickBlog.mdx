@@ -55,7 +55,9 @@ Modes are as follows:
 <ParamField body="formality" type="string" default="casual" required>
   This field is used to input formality to your generated content.
 </ParamField>
-
+<ParamField body="tone" type="string" default="witty" required>
+  This field is used to input tone to your generated content.
+</ParamField>
 ### Response
 
 <ResponseField name="status" type="string">
@@ -100,7 +102,8 @@ curl --location --request POST 'https://api-v2.longshot.ai/custom/api/generate/o
     "blog_type": "listicle",
     "mode": "serp",
     "domain_list": [],
-    "formality": "casual"
+    "formality": "casual",
+    "tone":"witty"
 }'
 ```
 
