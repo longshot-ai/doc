@@ -8,7 +8,12 @@ If no response is received here due to the extended generation time required by 
 
 ### Headers
 
-<ParamField header="Authorization" type="string" placeholder="Bearer <Secret Token>" required>
+<ParamField
+  header="Authorization"
+  type="string"
+  placeholder="Bearer <Secret Token>"
+  required
+>
   Input the Authorization Bearer Token to authorize your API request.
 </ParamField>
 
@@ -20,49 +25,46 @@ If no response is received here due to the extended generation time required by 
   Example: 
   "Generate a list of 5 frequently asked questions for this text: "Mumbai is a city with many bright tourist spots,"  
     OR  
-  "Bard: Google's answer to ChatGPT""  
+  "Bard: Google's answer to ChatGPT""
 
-  You can specify the language in the instruction to generate content in that language. We support all languages but better quality in following:
-    1. English
-    2. French
-    3. Italian
-    4. Dutch
-    5. Portuguese
-    6. German
-    7. Polish
-    8. Spanish
-  
-  Example:
-  "Generate a list of 5 frequently asked questions for this text: "Is AI is boon or bane?"  
-   Write the respone in spanish"
+You can specify the language in the instruction to generate content in that language. We support all languages but better quality in following: 1. English 2. French 3. Italian 4. Dutch 5. Portuguese 6. German 7. Polish 8. Spanish
+
+Example:
+"Generate a list of 5 frequently asked questions for this text: "Is AI is boon or bane?"  
+ Write the respone in spanish"
+
 </ParamField>
 
 <ParamField body="mode" type="string" default="serp" required>
-  This field is used to decide the mode of the generation. 
+  This field is used to decide the mode of the generation.
 
-  Modes are as follows:
-  1. serp
-  2. domain
-  3. url
-  4. file
-  
+Modes are as follows:
+
+1. serp
+2. domain
+3. url
+4. file
+
+</ParamField>
+
+<ParamField body="topic" type="string">
+  This field is used to input the text as an instructional prompt for generating
+  content.
 </ParamField>
 
 <ParamField body="domain_list" type="string">
   This field is used to input the array of the domains you want to provide as a reference, while generating the content.
   This field needs to be passed if mode is "domain".
 
-  Example:
-  1. wikipedia.org
-  2. medium.com
-</ParamField>
+Example:
 
-<ParamField body="topic" type="string">
-  This field is used to input the text as an instructional prompt for generating content.
-</ParamField>
+1. wikipedia.org
+2. medium.com
+   </ParamField>
 
 <ParamField body="url_list" type="string" when="mode=url">
-  This field is used to input the array of the URLs you want to provide as a reference, while generating the content.
+  This field is used to input the array of the URLs you want to provide as a
+  reference, while generating the content.
 </ParamField>
 
 <ParamField body="fileid" type="string" when="mode=file">
@@ -71,7 +73,8 @@ If no response is received here due to the extended generation time required by 
 ### Response
 
 <ResponseField name="status" type="string">
-  Indicates whether the call was successful. It prompts success if working, otherwise not.
+  Indicates whether the call was successful. It prompts success if working,
+  otherwise not.
 </ResponseField>
 
 <ResponseField name="copies" type="object">
@@ -89,15 +92,18 @@ The generated content.
 </ResponseField>
 
 <ResponseField name="citations" type="string">
-  This array provides the source or the links of the sources considered while generating content.
+  This array provides the source or the links of the sources considered while
+  generating content.
 </ResponseField>
 
 <ResponseField name="message" type="string">
-  This information is attached to the call and offers meaningful details when errors occur.
+  This information is attached to the call and offers meaningful details when
+  errors occur.
 </ResponseField>
 
 <ResponseField name="credits_used" type="number">
-  This field informs you about the credits consumed for this particular request. It varies on the generated content for different use cases.
+  This field informs you about the credits consumed for this particular request.
+  It varies on the generated content for different use cases.
 </ResponseField>
 
 <RequestExample>
@@ -110,6 +116,7 @@ curl --location --request POST 'https://api-v2.longshot.ai/custom/api/generate/f
 --data-raw '{
     "instruction": "",
     "mode": "serp",
+    "topic":"",
     "domain_list": [],
     "url_list": [],
     "fileid": ""
