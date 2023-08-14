@@ -61,6 +61,13 @@ If no response is received here due to the extended generation time required by 
   This field is used to input the text as an instructional prompt for generating content.
 </ParamField>
 
+<ParamField body="url_list" type="string" when="mode=url">
+  This field is used to input the array of the URLs you want to provide as a reference, while generating the content.
+</ParamField>
+
+<ParamField body="fileid" type="string" when="mode=file">
+  This field is used to input the file id when you're using the file mode.
+</ParamField>
 ### Response
 
 <ResponseField name="status" type="string">
