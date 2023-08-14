@@ -47,6 +47,7 @@
       "pages": [
         "api-reference/endpoint/FactGPT",
         "api-reference/endpoint/OneClickBlog",
+        "api-reference/endpoint/OneClickSpecializedBlog",
         "api-reference/endpoint/InstructPrompt",
         "api-reference/endpoint/RephraseContent",
         "api-reference/endpoint/TextExtender",
