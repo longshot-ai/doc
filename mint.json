@@ -40,14 +40,16 @@
     },
     {
       "group": "API Documentation",
-      "pages": ["api-reference/authentication"]
+      "pages": [
+        "api-reference/authentication",
+        "api-reference/endpoint/OneClickSpecializedBlog"
+      ]
     },
     {
       "group": "Feature Endpoint",
       "pages": [
         "api-reference/endpoint/FactGPT",
         "api-reference/endpoint/OneClickBlog",
-        "api-reference/endpoint/OneClickSpecializedBlog",
         "api-reference/endpoint/InstructPrompt",
         "api-reference/endpoint/RephraseContent",
         "api-reference/endpoint/TextExtender",
