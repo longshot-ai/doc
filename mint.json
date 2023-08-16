@@ -40,10 +40,7 @@
     },
     {
       "group": "API Documentation",
-      "pages": [
-        "api-reference/authentication",
-        "api-reference/endpoint/OneClickSpecializedBlog"
-      ]
+      "pages": ["api-reference/authentication"]
     },
     {
       "group": "Feature Endpoint",
@@ -58,7 +55,8 @@
         "api-reference/endpoint/ParagraphShredder",
         "api-reference/endpoint/DetectClaims",
         "api-reference/endpoint/FactCheck",
-        "api-reference/endpoint/OneClickSpecializedBlog"
+        "api-reference/endpoint/OneClickSpecializedBlog",
+        "api-reference/endpoint/Test"
       ]
     }
   ],

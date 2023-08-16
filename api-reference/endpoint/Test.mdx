@@ -1,77 +1,88 @@
 ---
-title: "Test"
-api: "POST https://api-v2.longshot.ai/custom/api/generate/factgpt/custom"
-description: "This endpoint allows you to generate fresh and relevant factually accurate content- FactGPT."
+title: "One Click Specialized Blog"
+api: "POST https://api-v2.longshot.ai/custom/api/generate/one/click/specialized/blog"
+description: "This endpoint enables you to craft a specialized compelling, factually accurate blog in just one click."
 ---
 
 If no response is received here due to the extended generation time required by this API, we suggest utilizing a local API platform such as Postman or directly accessing the API through your project.
 
 ### Headers
 
-<ParamField header="Authorization" type="string" placeholder="Bearer <Secret Token>" required>
+<ParamField
+  header="Authorization"
+  type="string"
+  placeholder="Bearer <Secret Token>"
+  required
+>
   Input the Authorization Bearer Token to authorize your API request.
 </ParamField>
 
 ### Body
 
-<ParamField body="instruction" type="string" required>
-  This field is used to input the text as an instructional prompt for generating content. 
-  
-  Example: 
-  "Generate a list of 5 frequently asked questions for this text: "Mumbai is a city with many bright tourist spots,"  
-    OR  
-  "Bard: Google's answer to ChatGPT""  
+<ParamField body="topic" type="string" required>
+  This input field requires the user to mention the topic they wish to write on.
+  Example: "Lithium Ion discovery in India" OR "Bard: Google answer to ChatGPT"
+</ParamField>
 
-  You can specify the language in the instruction to generate content in that language. We support all languages but better quality in following:
-    1. English
-    2. French
-    3. Italian
-    4. Dutch
-    5. Portuguese
-    6. German
-    7. Polish
-    8. Spanish
-  
-  Example:
-  "Generate a list of 5 frequently asked questions for this text: "Is AI is boon or bane?"  
-   Write the respone in spanish"
+<ParamField body="description" type="string" required>
+  This input field requires the user to elaborate on the topic they wish to
+  write on. Example: "Showcase the future of manufacturing in India, following
+  Lithium Ion discovery."
+</ParamField>
+
+<ParamField body="blog_type" type="string" default="listicle" required>
+  This input field defines the type of blog you wish to generate. Following are
+  the blog_types for specialized you can use: 1. **Case Study**: Analyze a
+  scenario. 2. **Ebook**: A digital publication. 3. **Educational**: Teach a
+  topic.
 </ParamField>
 
 <ParamField body="mode" type="string" default="serp" required>
-  This field is used to decide the mode of the generation. 
+  This field is used to decide the mode of the generation.
 
-  Modes are as follows:
-  1. serp
-  2. domain
-  3. url
-  4. file
-  
+Modes are as follows:
+
+1. serp
+2. domain
+
 </ParamField>
 
 <ParamField body="domain_list" type="string">
-  This field is used to input the array of the domains you want to provide as a reference, while generating the content.
-  This field needs to be passed if mode is "domain".
-
-  Example:
-  1. wikipedia.org
-  2. medium.com
+  This field is used to input the array of the domains you want to provide as a
+  reference, while generating the content. This field needs to be passed if mode
+  is "domain".
 </ParamField>
 
-<ParamField body="topic" type="string">
-  This field is used to input the text as an instructional prompt for generating content.
+<ParamField body="formality" type="string" default="casual" required>
+  This field is used to input formality to your generated content.
+
+## Modes are as follows:
+
+1. **casual**: A relaxed and informal tone.
+2. **neutral**: Balanced without expressing any strong feelings or bias.
+3. **formal**: Professional and follows strict conventions of grammar.
+
 </ParamField>
 
-<ParamField body="url_list" type="string" when="mode=url">
-  This field is used to input the array of the URLs you want to provide as a reference, while generating the content.
+<ParamField body="tone" type="string" default="witty" required>
+  This field is used to input tone to your generated content.
+
+## Modes are as follows:
+
+1. **personable**: Helps you relate to your users on a personal level.
+2. **confident**: Assures users with a tone of certainty.
+3. **empathetic**: Understand and express the feelings of users.
+4. **engaging**: Keeps users interested and invested.
+5. **witty**: Adds humor to make users smile.
+6. **direct**: Gets straight to the point for users who prefer clarity.
+
 </ParamField>
 
-<ParamField body="file_id" type="string" when="mode=file">
-  This field is used to input the file id when you're using the file mode.
-</ParamField>
 ### Response
 
 <ResponseField name="status" type="string">
-  Indicates whether the call was successful. It prompts success if working, otherwise not.
+  Indicates whether the call was successful. It prompts success if working,
+  otherwise not.
 </ResponseField>
 
 <ResponseField name="copies" type="object">
@@ -81,38 +92,37 @@ The generated content.
 <Expandable title="Toggle object">
 
 <ResponseField name="content" type="string">
-  This is the generated content.
+  Here's the one-click blog (HTML-formatted).
 </ResponseField>
 
 </Expandable>
 
 </ResponseField>
 
-<ResponseField name="citations" type="string">
-  This array provides the source or the links of the sources considered while generating content.
-</ResponseField>
-
 <ResponseField name="message" type="string">
-  This information is attached to the call and offers meaningful details when errors occur.
+  This information is attached to the call and offers meaningful details when
+  errors occur.
 </ResponseField>
 
 <ResponseField name="credits_used" type="number">
-  This field informs you about the credits consumed for this particular request. It varies on the generated content for different use cases.
+  This field informs you about the credits consumed for this particular request.
+  It varies on the generated content for different use cases.
 </ResponseField>
 
 <RequestExample>
 
 ```bash Example Request
-curl --location --request POST 'https://api-v2.longshot.ai/custom/api/generate/factgpt/custom' \
---header 'Content-Type: application/json' \
+curl --location --request POST 'https://api-v2.longshot.ai/custom/api/generate/one/click/specialized/blog' \
 --header 'Authorization: Bearer <token>' \
 -H 'Content-Type: application/json' \
 --data-raw '{
-    "instruction": "",
+    "topic": "<Your Topic>",
+    "description": "<Your Description>",
+    "blog_type": "listicle",
     "mode": "serp",
     "domain_list": [],
-    "url_list": [],
-    "file_id": ""
+    "formality": "casual",
+    "tone": "witty"
 }'
 ```
 
@@ -124,10 +134,9 @@ curl --location --request POST 'https://api-v2.longshot.ai/custom/api/generate/f
 {
 	"copies": [
 		{
-			"content": "<Generated Shredded Paragraph>"
+			"content": "<Generated Blog>"
 		}
 	],
-  "citations" : []
 	"status": "success",
 	"message": "Generated successfully",
 	"credits_used": <Credits>
