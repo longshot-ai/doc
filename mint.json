@@ -50,7 +50,6 @@
       "pages": [
         "api-reference/endpoint/FactGPT",
         "api-reference/endpoint/OneClickBlog",
-        "api-reference/endpoint/OneClickSpecializedBlog",
         "api-reference/endpoint/InstructPrompt",
         "api-reference/endpoint/RephraseContent",
         "api-reference/endpoint/TextExtender",
@@ -59,7 +58,8 @@
         "api-reference/endpoint/ParagraphShredder",
         "api-reference/endpoint/DetectClaims",
         "api-reference/endpoint/FactCheck",
-        "api-reference/endpoint/Test"
+        "api-reference/endpoint/Test",
+        "api-reference/endpoint/OneClickSpecializedBlog"
       ]
     }
   ],
