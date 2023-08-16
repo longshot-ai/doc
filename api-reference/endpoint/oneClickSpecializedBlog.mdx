@@ -32,10 +32,9 @@ If no response is received here due to the extended generation time required by 
 
 <ParamField body="blog_type" type="string" default="listicle" required>
   This input field defines the type of blog you wish to generate. Following are
-  the blog_types for specialized you can use:
-1. **Case Study**: Analyze a scenario.
-2. **Ebook**: A digital publication.
-3. **Educational**: Teach a topic.
+  the blog_types for specialized you can use: 1. **Case Study**: Analyze a
+  scenario. 2. **Ebook**: A digital publication. 3. **Educational**: Teach a
+  topic.
 </ParamField>
 
 <ParamField body="mode" type="string" default="serp" required>
@@ -112,17 +111,16 @@ The generated content.
 
 ```bash Example Request
 curl --location --request POST 'https://api-v2.longshot.ai/custom/api/generate/one/click/specialized/blog' \
---header 'Content-Type: application/json' \
 --header 'Authorization: Bearer <token>' \
 -H 'Content-Type: application/json' \
 --data-raw '{
-    "topic": "",
-    "description": "",
+    "topic": "<Your Topic>",
+    "description": "<Your Description>",
     "blog_type": "listicle",
     "mode": "serp",
     "domain_list": [],
     "formality": "casual",
-    "tone":"witty"
+    "tone": "witty"
 }'
 ```
 
