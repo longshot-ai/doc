@@ -58,7 +58,6 @@
         "api-reference/endpoint/ParagraphShredder",
         "api-reference/endpoint/DetectClaims",
         "api-reference/endpoint/FactCheck",
-        "api-reference/endpoint/Test",
         "api-reference/endpoint/OneClickSpecializedBlog"
       ]
     }
