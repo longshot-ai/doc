@@ -65,7 +65,7 @@ If no response is received here due to the extended generation time required by 
   This field is used to input the array of the URLs you want to provide as a reference, while generating the content.
 </ParamField>
 
-<ParamField body="fileid" type="string" when="mode=file">
+<ParamField body="file_id" type="string" when="mode=file">
   This field is used to input the file id when you're using the file mode.
 </ParamField>
 ### Response
@@ -112,7 +112,7 @@ curl --location --request POST 'https://api-v2.longshot.ai/custom/api/generate/f
     "mode": "serp",
     "domain_list": [],
     "url_list": [],
-    "fileid": ""
+    "file_id": ""
 }'
 ```
 
