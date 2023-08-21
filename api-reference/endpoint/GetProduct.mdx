@@ -1,0 +1,106 @@
+---
+title: "Generate Product Copies"
+api: "POST https://api-v2.longshot.ai/custom/api/generate/product/copies"
+description: "This endpoint enables you to generate compelling product descriptions or reviews. It can utilize SERP data to enhance the generated content based on web data."
+---
+
+If no response is received here due to the extended generation time required by this API, we suggest utilizing a local API platform such as Postman or directly accessing the API through your project.
+
+### Headers
+
+<ParamField
+  header="Authorization"
+  type="string"
+  placeholder="Bearer <Secret Token>"
+  required
+/>
+
+### Body
+
+<ParamField body="description" type="string" required>
+  A brief description or tagline of the product.
+  Example: "LongShot is an automatic content creation platform."
+</ParamField>
+
+<ParamField body="product" type="string" required>
+  The name or title of the product.
+  Example: "Longshot"
+</ParamField>
+
+<ParamField body="feature_type" type="string" required>
+  Defines the type of content you wish to generate. You can choose between:
+  
+  1. **product_review**: A review of the product.
+  2. **product_description**: A detailed description of the product.
+</ParamField>
+
+<ParamField body="language" type="string" default="en">
+  The language in which you want the content. Use short forms like "en" for English or "de" for German.
+</ParamField>
+
+<ParamField body="serp" type="boolean" default=true>
+  If set to true, the API will search for product details from Google and generate descriptions using web data.
+</ParamField>
+
+<ParamField body="phrases_to_exclude" type="array">
+  An array of phrases that you want to exclude from the generated content.
+  Example: ["Introducing", "Step into"]
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="string">
+  Indicates whether the call was successful. It prompts success if working, otherwise not.
+</ResponseField>
+
+<ResponseField name="copies" type="object">
+  The generated product content.
+
+  <Expandable title="Toggle object">
+    <ResponseField name="content" type="string">
+      Here's the generated product content (HTML-formatted).
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+<ResponseField name="message" type="string">
+  This information is attached to the call and offers meaningful details when errors occur.
+</ResponseField>
+
+<ResponseField name="credits_used" type="number">
+  This field informs you about the credits consumed for this particular request. It varies on the generated content for different use cases.
+</ResponseField>
+
+<RequestExample>
+
+```bash
+curl --location --request POST 'https://api-v2.longshot.ai/custom/api/generate/product/copies' \
+--header 'Authorization: Bearer <token>' \
+-H 'Content-Type: application/json' \
+--data-raw '{
+    "description": "LongShot is an automatic content creation platform",
+    "product": "Longshot",
+    "feature_type": "product_description",
+    "language": "en",
+    "serp": true,
+    "phrases_to_exclude": ["Introducing", "Step into"]
+}'
+```
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "copies": [
+    {
+      "content": "<Generated Product Content>"
+    }
+  ],
+  "status": "success",
+  "message": "Generated successfully",
+  "credits_used": <Credits>
+}
+```
+
+</ResponseExample>
